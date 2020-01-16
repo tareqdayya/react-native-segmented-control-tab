@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: 'white',
   },
-})
+});
+
 const handleTabPress = (
   index: number,
   multiple: boolean,
@@ -117,7 +118,7 @@ export default class SegmentedControlTab extends PureComponent<Props> {
       selectedIndices,
       values,
       badges,
-      borderRadius,
+      borderRadius = 4,
       tabsContainerStyle,
       tabsContainerDisableStyle,
       tabStyle,
@@ -137,21 +138,7 @@ export default class SegmentedControlTab extends PureComponent<Props> {
       accessibilityLabels,
       activeTabOpacity,
       enabled,
-    } = this.props
-    const firstTabStyleDefault = [
-      {
-        borderRightWidth: values && values.length === 2 ? 1 : 0,
-        borderTopLeftRadius: borderRadius,
-        borderBottomLeftRadius: borderRadius,
-      },
-    ]
-    const lastTabStyleDefault = [
-      {
-        borderLeftWidth: 0,
-        borderTopRightRadius: borderRadius,
-        borderBottomRightRadius: borderRadius,
-      },
-    ]
+    } = this.props;
 
     const tabsContainerStyles = [styles.tabsContainerStyle, tabsContainerStyle]
     if (!enabled) {
@@ -179,11 +166,11 @@ export default class SegmentedControlTab extends PureComponent<Props> {
               onTabPress={indexs => handleTabPress(indexs, multiple, selectedIndex, onTabPress)
               }
               firstTabStyle={
-                index === 0 ? [{ borderRightWidth: 0 }, firstTabStyleDefault, firstTabStyle] : {}
+                index === 0 ? [firstTabStyle] : {}
               }
               lastTabStyle={
                 index === values.length - 1
-                  ? [{ borderLeftWidth: 0 }, lastTabStyleDefault, lastTabStyle]
+                  ? [lastTabStyle]
                   : {}
               }
               tabStyle={[

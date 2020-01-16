@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     borderColor: '#0076FF',
     borderWidth: 1,
     backgroundColor: 'white',
+    borderRadius: 6,
   },
   activeTabStyle: {
     backgroundColor: '#0076FF',
@@ -108,8 +109,8 @@ export default class TabOption extends PureComponent<Props> {
       index,
       badge,
       text,
-      firstTabStyle,
-      lastTabStyle,
+      // firstTabStyle,
+      // lastTabStyle,
       tabStyle,
       activeTabStyle,
       tabTextStyle,
@@ -125,15 +126,16 @@ export default class TabOption extends PureComponent<Props> {
       activeTabOpacity,
       accessibilityLabel,
       enabled,
-    } = this.props
+    } = this.props;
+
     return (
       <TouchableOpacity
         style={[
           styles.tabStyle,
           tabStyle,
           isTabActive ? [styles.activeTabStyle, activeTabStyle] : {},
-          firstTabStyle,
-          lastTabStyle,
+          // firstTabStyle,
+          // lastTabStyle,
         ]}
         accessible={accessible}
         accessibilityLabel={accessibilityLabel}

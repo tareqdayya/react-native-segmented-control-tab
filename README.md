@@ -33,7 +33,7 @@ npm install react-native-segmented-control-tab --save
 This has been made into a controlled component from 3.0. Those who are familiar with 2.0, read below for the updated usage.
 
 ```javascript
-import SegmentedControlTab from "react-native-segmented-control-tab";
+import SegmentedControlTab from "react-native-segmented-control-tab/src/SegmentedControlTab";
 
 class ConsumerComponent extends Component {
   constructor() {
