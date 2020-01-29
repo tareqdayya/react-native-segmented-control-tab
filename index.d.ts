@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { StyleProp, ViewStyle, TextStyle } from "react-native";
 export interface SegmentedControlTabProperties extends React.Props<ReactNativeSegmentedControlTab> {
-    // Default ['One', 'Two', 'Three'] ; titles of tabs Default 
+    // Default ['One', 'Two', 'Three'] ; titles of tabs Default
     values?: Array<any>
-    // Default [0] ;index of tab item to be selected initially 
+    // Default [0] ;index of tab item to be selected initially
     selectedIndex?: number
     // Default  [0];Array of indices of tab items to be selected initially - when multiple prop is true else it will take selectedIndex
     selectedIndices?: Array<number>
@@ -49,6 +49,8 @@ export interface SegmentedControlTabProperties extends React.Props<ReactNativeSe
     accessibilityLabels?: Array<string>
     // Default  1;Opacity value to customize tab press
     activeTabOpacity?: number
+    // testID to be passed to children (individual segments). "-${index}" will be added to it.
+    testID?: string;
 
 }
 export default class ReactNativeSegmentedControlTab extends React.Component<SegmentedControlTabProperties>{
