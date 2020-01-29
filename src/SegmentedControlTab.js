@@ -37,6 +37,7 @@ type Props = {
   tabsContainerDisableStyle: ViewStyleProp,
   borderRadius: number,
   accessibilityLabels: string[],
+  testID?: string;
 }
 
 const styles = StyleSheet.create({
@@ -78,10 +79,6 @@ const getAccessibilityLabelByIndex = (
   : undefined)
 
 export default class SegmentedControlTab extends PureComponent<Props> {
-  static defaultProps = {
-
-  };
-
   static defaultProps = {
     values: ['One', 'Two', 'Three'],
     accessible: true,
@@ -138,6 +135,7 @@ export default class SegmentedControlTab extends PureComponent<Props> {
       accessibilityLabels,
       activeTabOpacity,
       enabled,
+      testID,
     } = this.props;
 
     const tabsContainerStyles = [styles.tabsContainerStyle, tabsContainerStyle]
@@ -191,6 +189,7 @@ export default class SegmentedControlTab extends PureComponent<Props> {
               accessible={accessible}
               accessibilityLabel={accessibilityText || item}
               enabled={enabled}
+              testID={`${testID}-${index}`}
             />
           )
         })}

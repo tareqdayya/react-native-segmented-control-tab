@@ -36,6 +36,7 @@ type Props = {
   activeTabOpacity?: number,
   accessibilityLabel?: string,
   enabled?: boolean,
+  testID?: string;
 }
 
 const styles = StyleSheet.create({
@@ -77,7 +78,7 @@ const styles = StyleSheet.create({
   activeTabBadgeStyle: {
     color: 'black',
   },
-})
+});
 
 export default class TabOption extends PureComponent<Props> {
   static defaultProps = {
@@ -126,10 +127,12 @@ export default class TabOption extends PureComponent<Props> {
       activeTabOpacity,
       accessibilityLabel,
       enabled,
+      testID,
     } = this.props;
 
     return (
       <TouchableOpacity
+        testID={testID}
         style={[
           styles.tabStyle,
           tabStyle,
